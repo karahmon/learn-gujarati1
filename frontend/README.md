@@ -1,30 +1,161 @@
-# React + TypeScript + Vite
+# Learn Gujarati Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive admin dashboard for managing the Learn Gujarati program, including mentor management, student tracking, and batch coordination.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Mentor Management**: Complete CRUD operations for mentors with advanced filtering
+- **Student Dashboard**: Overview statistics and analytics
+- **Batch Management**: Track and organize learning batches (LG Batch 77, 78, 79, etc.)
+- **Search & Filter**: Advanced search across all entities with real-time results
+- **CSV Import/Export**: Bulk data operations with downloadable templates
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + Shadcn/UI Components
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
+- **Build Tool**: Vite
+- **Deployment**: Vercel
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/learn-gujarati.git
+cd learn-gujarati/frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create environment file:
+```bash
+cp .env.example .env
+```
+
+4. Start development server:
+```bash
+npm run dev
+```
+
+## 🚀 Deployment
+
+### Vercel Deployment
+
+This project is optimized for Vercel deployment with the included `vercel.json` configuration.
+
+1. **Connect to Vercel**:
+   - Fork this repository
+   - Connect your GitHub account to Vercel
+   - Import the project from the `/frontend` directory
+
+2. **Environment Variables** (if needed):
+   - No external APIs required currently
+   - All data is managed locally with test data
+
+3. **Build Settings**:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Root Directory**: `frontend` (if deploying from monorepo)
+
+### Manual Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. Deploy the `dist` folder to your hosting provider
+
+## 📖 Usage
+
+### Default Login Credentials
+- **Email**: `learngujarati@dadabhagwan.org`
+- **Password**: `Dada@123`
+
+### Key Features
+
+1. **Dashboard**: Overview statistics and quick navigation
+2. **Mentors**: 
+   - View all mentors with pagination
+   - Search by name, email, MHT ID, or mentee details
+   - Filter by center, active mentee status, current batch, last batch, seva date
+   - Add, edit, delete mentors
+   - Export/import CSV data
+3. **Coming Soon Pages**: Placeholders for Students, Alumni, Tutors, and Batches
+
+### Mentor Data Structure
+- Mentor Name & Email
+- Center Assignment
+- MHT ID (Unique Identifier)
+- Active Mentee Status
+- Current Mentee Details
+- Batch Information (LG Batch format)
+- Active Since & Last Seva Dates
+
+## 🔧 Configuration
+
+### Vercel Configuration (`vercel.json`)
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Build Optimization
+- Code splitting for React, Router, and UI libraries
+- Disabled sourcemaps for production
+- Optimized bundle sizes with manual chunks
+
+## 🧪 Development
+
+### Available Scripts
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run preview`: Preview production build
+- `npm run lint`: Run ESLint
+
+### Project Structure
+```
+src/
+├── components/          # Reusable components
+├── data/               # Test data and types
+├── layout/             # Layout components
+├── lib/                # Utility functions and UI components
+├── pages/              # Page components
+├── router.tsx          # Route configuration
+└── main.tsx           # App entry point
+```
+
+## 📝 License
+
+This project is part of the Learn Gujarati initiative by Dadabhagwan.org
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📞 Support
+
+For support and questions, please contact the Learn Gujarati development team.
+
+---
+
+Built with ❤️ for the Learn Gujarati community

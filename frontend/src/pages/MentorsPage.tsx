@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbList } from "@/lib/utils/ui/breadcrumb";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/lib/utils/ui/card";
+import { Card, CardContent, CardFooter } from "@/lib/utils/ui/card";
 import { Table, TableHeader, TableRow, TableHead, TableCell, TableBody } from "@/lib/utils/ui/table";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuItem } from "@/lib/utils/ui/dropdown-menu";
 import { Button } from "@/lib/utils/ui/button";
 import { Input } from "@/lib/utils/ui/input";
 import { 
-  File, 
   MoreHorizontal, 
   ArrowUp, 
   ArrowDown, 
