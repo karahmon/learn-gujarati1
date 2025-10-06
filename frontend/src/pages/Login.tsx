@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4 relative">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4 relative">
       {/* Theme Toggle - Top Right */}
       <div className="absolute top-4 right-4 z-10">
         <ThemeToggle />
@@ -42,14 +42,14 @@ const LoginPage: React.FC = () => {
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30 dark:opacity-10 bg-repeat" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
       }}></div>
       
       <div className="relative w-full max-w-md">
         {/* Logo Section */}
         <div className="flex justify-center mb-8">
           <div className="flex items-center gap-4">
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl shadow-lg">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl shadow-lg">
               <img 
                 src="https://learngujarati.dadabhagwan.org/assets/logo-DmS1rboG.svg"
                 alt="Learn Gujarati Logo"
@@ -57,7 +57,7 @@ const LoginPage: React.FC = () => {
               />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Learn Gujarati
               </h1>
               <p className="text-sm text-gray-600">Admin Portal</p>
@@ -68,7 +68,7 @@ const LoginPage: React.FC = () => {
         {/* Login Card */}
         <Card className="w-full shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardHeader className="space-y-1 pb-6">
-            <CardTitle className="text-2xl font-bold text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+            <CardTitle className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Welcome Back! 👋
             </CardTitle>
             <CardDescription className="text-center text-gray-600 dark:text-gray-300">
@@ -87,7 +87,7 @@ const LoginPage: React.FC = () => {
                 id="email"
                 type="email"
                 placeholder="learngujarati@dadabhagwan.org"
-                className="h-11 border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:border-orange-400 focus:ring-orange-400 rounded-xl"
+                className="h-11 border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:ring-blue-400 rounded-xl"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ const LoginPage: React.FC = () => {
                 id="password"
                 type="password"
                 placeholder="Dada@123"
-                className="h-11 border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:border-orange-400 focus:ring-orange-400 rounded-xl"
+                className="h-11 border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:ring-blue-400 rounded-xl"
                 required
               />
             </div>
@@ -117,7 +117,7 @@ const LoginPage: React.FC = () => {
           <CardFooter className="pt-6">
             <Button
               onClick={() => login(email, password)}
-              className="w-full h-11 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
+              className="w-full h-11 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
             >
               Sign In to Dashboard 🚀
             </Button>

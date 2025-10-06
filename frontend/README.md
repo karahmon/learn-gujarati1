@@ -1,6 +1,6 @@
 # Learn Gujarati Admin Dashboard
 
-A comprehensive admin dashboard for managing the Learn Gujarati program, including mentor management, student tracking, and batch coordination.
+A comprehensive admin dashboard for managing the Learn Gujarati program, featuring a modern blue color scheme with mentor management, student tracking, and batch coordination.
 
 ## 🚀 Features
 

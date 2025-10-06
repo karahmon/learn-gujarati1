@@ -59,12 +59,12 @@ const DashboardLayout = () => {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]">
       {/* Enhanced Sidebar */}
-      <div className="hidden border-r bg-gradient-to-b from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800 md:block shadow-lg">
+      <div className="hidden border-r bg-gradient-to-b from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 md:block shadow-lg">
         <div className="flex h-full max-h-screen flex-col">
           {/* Logo Section */}
-          <div className="flex h-20 items-center justify-center border-b border-orange-100 dark:border-gray-700 px-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+          <div className="flex h-20 items-center justify-center border-b border-blue-100 dark:border-gray-700 px-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <Link to="/dashboard/home" className="flex items-center gap-3 font-bold text-xl">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl shadow-lg">
+              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl shadow-lg">
                 <img 
                   src="https://learngujarati.dadabhagwan.org/assets/logo-DmS1rboG.svg" 
                   alt="Learn Gujarati Logo" 
@@ -72,7 +72,7 @@ const DashboardLayout = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Learn Gujarati
                 </span>
                 <span className="text-xs text-gray-500 font-normal">Admin Portal</span>
@@ -91,14 +91,14 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/home"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 bg-white/60 dark:bg-gray-700/60 shadow-sm text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-gray-600"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 bg-white/60 dark:bg-gray-700/60 shadow-sm text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-gray-600"
               >
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-orange-100 to-red-100">
-                  <Home className="h-4 w-4 text-orange-600" />
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100">
+                  <Home className="h-4 w-4 text-blue-600" />
                 </div>
                 <span className="font-semibold">Dashboard</span>
                 <div className="ml-auto">
-                  <span className="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-700 rounded-full">
+                  <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded-full">
                     Active
                   </span>
                 </div>
@@ -106,14 +106,14 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/mentors"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-orange-700"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-blue-700"
               >
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-100">
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100">
                   <span className="text-lg">👨‍🏫</span>
                 </div>
                 <span>Mentors</span>
                 <div className="ml-auto">
-                  <span className="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-700 rounded-full">
+                  <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded-full">
                     15
                   </span>
                 </div>
@@ -121,7 +121,7 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/students"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-orange-700"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-blue-700"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-green-100">
                   <GraduationCap className="h-4 w-4 text-green-600" />
@@ -136,7 +136,7 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/alumni"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-orange-700"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-blue-700"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-yellow-100">
                   <Award className="h-4 w-4 text-yellow-600" />
@@ -151,7 +151,7 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/tutors"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-orange-700"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-blue-700"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-100">
                   <Users className="h-4 w-4 text-purple-600" />
@@ -166,7 +166,7 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/batches"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-orange-700"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-white/60 hover:shadow-sm text-gray-700 hover:text-blue-700"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-100">
                   <BookOpen className="h-4 w-4 text-indigo-600" />
@@ -182,11 +182,11 @@ const DashboardLayout = () => {
           </div>
           
           {/* Bottom Section with Enhanced User Controls */}
-          <div className="p-4 border-t border-orange-100 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
+          <div className="p-4 border-t border-blue-100 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
             <div className="space-y-3">
               {/* User Info Section */}
-              <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-700 dark:to-gray-600 border border-orange-200 dark:border-gray-600">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500">
+              <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 border border-blue-200 dark:border-gray-600">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500">
                   <span className="text-white text-sm font-bold">
                     {loggedInUser?.email.charAt(0).toUpperCase()}
                   </span>
@@ -275,18 +275,18 @@ const DashboardLayout = () => {
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-80 bg-gradient-to-b from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800">
+            <SheetContent side="left" className="w-80 bg-gradient-to-b from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
               {/* Mobile menu content */}
               <div className="flex flex-col h-full">
                 <div className="flex items-center gap-3 font-bold text-xl mb-8">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl shadow-lg">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl shadow-lg">
                     <img 
                       src="https://learngujarati.dadabhagwan.org/assets/logo-DmS1rboG.svg" 
                       alt="Learn Gujarati Logo" 
                       className="w-8 h-8 filter brightness-0 invert"
                     />
                   </div>
-                  <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                     Learn Gujarati
                   </span>
                 </div>
@@ -341,8 +341,8 @@ const DashboardLayout = () => {
                 <div className="border-t border-orange-100 pt-4 mt-4">
                   <div className="space-y-3">
                     {/* User Info */}
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500">
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500">
                         <span className="text-white text-sm font-bold">
                           {loggedInUser?.email.charAt(0).toUpperCase()}
                         </span>
@@ -409,7 +409,7 @@ const DashboardLayout = () => {
                 <Input
                   type="search"
                   placeholder="Search mentors, students, alumni, tutors, or batches..."
-                  className="w-full bg-gray-100/50 dark:bg-gray-700/50 border-0 pl-10 pr-4 py-2 rounded-xl focus:bg-white dark:focus:bg-gray-700 focus:ring-2 focus:ring-orange-200 focus:border-transparent transition-all duration-200"
+                  className="w-full bg-gray-100/50 dark:bg-gray-700/50 border-0 pl-10 pr-4 py-2 rounded-xl focus:bg-white dark:focus:bg-gray-700 focus:ring-2 focus:ring-blue-200 focus:border-transparent transition-all duration-200"
                   value={searchTerm}
                   onChange={(e) => handleSearch(e.target.value)}
                 />

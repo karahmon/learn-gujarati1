@@ -80,7 +80,7 @@ const DashboardPage: React.FC = () => {
     <div className="space-y-6 p-6">
       {/* Header */}
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
           Dashboard Overview 📊
         </h1>
         <p className="text-gray-600">
@@ -115,7 +115,7 @@ const DashboardPage: React.FC = () => {
           value={`${stats.activeMentors}/${stats.totalMentors}`}
           description="Currently teaching"
           icon={Users}
-          color="from-orange-500 to-red-500"
+          color="from-blue-500 to-indigo-500"
           linkTo="/dashboard/mentors"
         />
         
@@ -173,14 +173,14 @@ const DashboardPage: React.FC = () => {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-orange-500" />
+              <Clock className="h-5 w-5 text-blue-500" />
               Recent Activity
             </CardTitle>
             <CardDescription>Latest updates across the platform</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex items-start gap-3 p-3 rounded-lg bg-orange-50 border border-orange-100">
-              <div className="w-2 h-2 rounded-full bg-orange-500 mt-2"></div>
+            <div className="flex items-start gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
+              <div className="w-2 h-2 rounded-full bg-blue-500 mt-2"></div>
               <div>
                 <p className="text-sm font-medium text-gray-900">New batch "Advanced Gujarati" started</p>
                 <p className="text-xs text-gray-500">2 hours ago • 15 students enrolled</p>
@@ -220,7 +220,7 @@ const DashboardPage: React.FC = () => {
                 <span className="font-medium">92%</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-gradient-to-r from-orange-400 to-red-500 h-2 rounded-full" style={{width: '92%'}}></div>
+                <div className="bg-gradient-to-r from-blue-400 to-indigo-500 h-2 rounded-full" style={{width: '92%'}}></div>
               </div>
             </div>
             

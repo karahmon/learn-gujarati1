@@ -299,7 +299,7 @@ const MentorsPage = () => {
       {/* Header Actions */}
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
             👨‍🏫 Mentors Management
           </h1>
           <p className="text-gray-600 mt-1">Manage mentor profiles and track their mentoring activities</p>
@@ -324,7 +324,7 @@ const MentorsPage = () => {
               className="hidden"
             />
           </label>
-          <Button size="sm" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600" onClick={handleAddMentor}>
+          <Button size="sm" className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600" onClick={handleAddMentor}>
             <Plus className="h-4 w-4 mr-2" />
             Add Mentor
           </Button>
@@ -352,7 +352,7 @@ const MentorsPage = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => setShowFilters(!showFilters)}
-                className={showFilters ? 'bg-orange-50 text-orange-600 border-orange-200' : ''}
+                className={showFilters ? 'bg-blue-50 text-blue-600 border-blue-200' : ''}
               >
                 <Filter className="h-4 w-4 mr-2" />
                 Filters {activeFiltersCount > 0 && `(${activeFiltersCount})`}
@@ -494,7 +494,7 @@ const MentorsPage = () => {
               </TableHeader>
               <TableBody>
                 {paginatedMentors.map((mentor) => (
-                  <TableRow key={mentor.id} className="hover:bg-orange-50">
+                  <TableRow key={mentor.id} className="hover:bg-blue-50">
                     <TableCell>
                       <div>
                         <div className="font-medium text-gray-900">{mentor.mentorName}</div>
@@ -683,7 +683,7 @@ const MentorsPage = () => {
             <div className="flex gap-2 mt-6">
               <Button 
                 size="sm"
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+                className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600"
                 onClick={() => {
                   handleEdit(selectedMentor);
                   setShowMentorDetails(false);
@@ -831,7 +831,7 @@ const MentorsPage = () => {
             <div className="flex gap-2 mt-6">
               <Button 
                 size="sm"
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+                className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600"
                 onClick={saveMentor}
                 disabled={!editingMentor.mentorName || !editingMentor.mentorEmail || !editingMentor.center || !editingMentor.mhtId}
               >
