@@ -11,6 +11,7 @@ import { Button } from "@/lib/utils/ui/button";
 import { Input } from "@/lib/utils/ui/input";
 import { Label } from "@/lib/utils/ui/label";
 import { useNavigate } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -33,9 +34,14 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 flex items-center justify-center p-4 relative">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4 relative">
+      {/* Theme Toggle - Top Right */}
+      <div className="absolute top-4 right-4 z-10">
+        <ThemeToggle />
+      </div>
+      
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30 bg-repeat" style={{
+      <div className="absolute inset-0 opacity-30 dark:opacity-10 bg-repeat" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
       }}></div>
       
@@ -60,19 +66,19 @@ const LoginPage: React.FC = () => {
         </div>
 
         {/* Login Card */}
-        <Card className="w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
+        <Card className="w-full shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardHeader className="space-y-1 pb-6">
             <CardTitle className="text-2xl font-bold text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
               Welcome Back! 👋
             </CardTitle>
-            <CardDescription className="text-center text-gray-600">
+            <CardDescription className="text-center text-gray-600 dark:text-gray-300">
               Sign in to access your admin dashboard
             </CardDescription>
           </CardHeader>
           
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-200">
                 Email Address
               </Label>
               <Input
@@ -81,13 +87,13 @@ const LoginPage: React.FC = () => {
                 id="email"
                 type="email"
                 placeholder="learngujarati@dadabhagwan.org"
-                className="h-11 border-gray-200 focus:border-orange-400 focus:ring-orange-400 rounded-xl"
+                className="h-11 border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:border-orange-400 focus:ring-orange-400 rounded-xl"
                 required
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="password" className="text-sm font-medium text-gray-700 dark:text-gray-200">
                 Password
               </Label>
               <Input
@@ -96,7 +102,7 @@ const LoginPage: React.FC = () => {
                 id="password"
                 type="password"
                 placeholder="Dada@123"
-                className="h-11 border-gray-200 focus:border-orange-400 focus:ring-orange-400 rounded-xl"
+                className="h-11 border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:border-orange-400 focus:ring-orange-400 rounded-xl"
                 required
               />
             </div>
@@ -120,7 +126,7 @@ const LoginPage: React.FC = () => {
         
         {/* Footer */}
         <div className="text-center mt-6">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
             © 2025 Learn Gujarati, a Dada Bhagwan Foundation Initiative.
           </p>
         </div>

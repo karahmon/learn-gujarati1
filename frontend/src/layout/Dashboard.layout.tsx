@@ -13,7 +13,8 @@ import { Input } from "@/lib/utils/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/lib/utils/ui/sheet";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { testMentors } from "@/data/mentorsData"; 
+import { testMentors } from "@/data/mentorsData";
+import { ThemeToggle } from "@/components/ThemeToggle"; 
 
 const DashboardLayout = () => {
   const [loggedInUser, setLoggedInUser] = useState<{ email: string } | null>({ email: 'learngujarati@dadabhagwan.org' });
@@ -58,10 +59,10 @@ const DashboardLayout = () => {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]">
       {/* Enhanced Sidebar */}
-      <div className="hidden border-r bg-gradient-to-b from-orange-50 to-red-50 md:block shadow-lg">
+      <div className="hidden border-r bg-gradient-to-b from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800 md:block shadow-lg">
         <div className="flex h-full max-h-screen flex-col">
           {/* Logo Section */}
-          <div className="flex h-20 items-center justify-center border-b border-orange-100 px-6 bg-white/80 backdrop-blur-sm">
+          <div className="flex h-20 items-center justify-center border-b border-orange-100 dark:border-gray-700 px-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <Link to="/dashboard/home" className="flex items-center gap-3 font-bold text-xl">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl shadow-lg">
                 <img 
@@ -83,7 +84,7 @@ const DashboardLayout = () => {
           <div className="flex-1 px-4 py-6">
             <nav className="space-y-2">
               <div className="pb-2">
-                <h3 className="px-3 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                <h3 className="px-3 mb-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   Dashboard
                 </h3>
               </div>
@@ -181,18 +182,18 @@ const DashboardLayout = () => {
           </div>
           
           {/* Bottom Section with Enhanced User Controls */}
-          <div className="p-4 border-t border-orange-100 bg-white/50">
+          <div className="p-4 border-t border-orange-100 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
             <div className="space-y-3">
               {/* User Info Section */}
-              <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200">
+              <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-700 dark:to-gray-600 border border-orange-200 dark:border-gray-600">
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500">
                   <span className="text-white text-sm font-bold">
                     {loggedInUser?.email.charAt(0).toUpperCase()}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-800 truncate">Admin User</p>
-                  <p className="text-xs text-gray-500 truncate">{loggedInUser?.email}</p>
+                  <p className="text-sm font-medium text-gray-800 dark:text-gray-100 truncate">Admin User</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-300 truncate">{loggedInUser?.email}</p>
                 </div>
               </div>
               
@@ -259,9 +260,9 @@ const DashboardLayout = () => {
         </div>
       </div>
       {/* Main Content Area */}
-      <div className="flex flex-col bg-gray-50/50">
+      <div className="flex flex-col bg-gray-50/50 dark:bg-gray-900/50">
         {/* Enhanced Header */}
-        <header className="flex h-16 items-center gap-6 border-b border-gray-200 bg-white/80 backdrop-blur-sm px-6 shadow-sm">
+        <header className="flex h-16 items-center gap-6 border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-6 shadow-sm">
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
@@ -407,7 +408,7 @@ const DashboardLayout = () => {
                 <Input
                   type="search"
                   placeholder="Search mentors, students, alumni, tutors, or batches..."
-                  className="w-full bg-gray-100/50 border-0 pl-10 pr-4 py-2 rounded-xl focus:bg-white focus:ring-2 focus:ring-orange-200 focus:border-transparent transition-all duration-200"
+                  className="w-full bg-gray-100/50 dark:bg-gray-700/50 border-0 pl-10 pr-4 py-2 rounded-xl focus:bg-white dark:focus:bg-gray-700 focus:ring-2 focus:ring-orange-200 focus:border-transparent transition-all duration-200"
                   value={searchTerm}
                   onChange={(e) => handleSearch(e.target.value)}
                 />
@@ -444,6 +445,11 @@ const DashboardLayout = () => {
                 )}
               </div>
             </form>
+          </div>
+          
+          {/* Header Actions */}
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
           </div>
         </header>
         
