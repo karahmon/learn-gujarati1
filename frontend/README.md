@@ -9,6 +9,7 @@ A comprehensive admin dashboard for managing the Learn Gujarati program, includi
 - **Batch Management**: Track and organize learning batches (LG Batch 77, 78, 79, etc.)
 - **Search & Filter**: Advanced search across all entities with real-time results
 - **CSV Import/Export**: Bulk data operations with downloadable templates
+- **Dark Mode Support**: Toggle between light, dark, and system theme preference
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## 🛠️ Tech Stack
@@ -87,7 +88,12 @@ npm run build
    - Filter by center, active mentee status, current batch, last batch, seva date
    - Add, edit, delete mentors
    - Export/import CSV data
-3. **Coming Soon Pages**: Placeholders for Students, Alumni, Tutors, and Batches
+3. **Theme System**:
+   - Light mode (default)
+   - Dark mode with carefully crafted color scheme
+   - System preference auto-detection
+   - Theme toggle available in header and login page
+4. **Coming Soon Pages**: Placeholders for Students, Alumni, Tutors, and Batches
 
 ### Mentor Data Structure
 - Mentor Name & Email

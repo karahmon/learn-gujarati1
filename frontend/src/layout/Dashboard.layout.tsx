@@ -91,7 +91,7 @@ const DashboardLayout = () => {
               
               <Link
                 to="/dashboard/home"
-                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 bg-white/60 shadow-sm text-orange-700 border border-orange-200"
+                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 bg-white/60 dark:bg-gray-700/60 shadow-sm text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-gray-600"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-orange-100 to-red-100">
                   <Home className="h-4 w-4 text-orange-600" />
@@ -275,7 +275,7 @@ const DashboardLayout = () => {
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-80 bg-gradient-to-b from-orange-50 to-red-50">
+            <SheetContent side="left" className="w-80 bg-gradient-to-b from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800">
               {/* Mobile menu content */}
               <div className="flex flex-col h-full">
                 <div className="flex items-center gap-3 font-bold text-xl mb-8">
@@ -355,6 +355,7 @@ const DashboardLayout = () => {
                     
                     {/* Mobile Actions */}
                     <div className="flex items-center justify-between gap-2">
+                      <ThemeToggle />
                       <Button 
                         variant="ghost" 
                         size="icon" 
