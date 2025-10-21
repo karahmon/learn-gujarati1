@@ -6,14 +6,14 @@ import Logo from '@/components/Logo';
 function App() {
   return (
     <BrowserRouter>
-      {/* Fixed logo at top-left of viewport */}
-      <div className="fixed top-4 left-4 z-50">
+      {/* Fixed logo at top-left of viewport - smaller on mobile */}
+      <div className="fixed top-2 left-2 sm:top-4 sm:left-4 z-50">
         <Logo showText={true} />
       </div>
       
-      {/* Center the login/signup forms inside a responsive container */}
-      <div className="flex min-h-screen flex-col items-center justify-center p-6">
-        <div className="w-full max-w-3xl px-4">
+      {/* Center the login/signup forms with mobile-optimized spacing */}
+      <div className="flex min-h-screen flex-col items-center justify-center px-4 py-16 sm:p-6">
+        <div className="w-full max-w-md">
           <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
