@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       {/* Fixed logo at top-left of viewport */}
       <div className="fixed top-4 left-4 z-50">
-        <Logo size={56} showText={true} />
+        <Logo showText={true} />
       </div>
       
       {/* Center the login/signup forms */}
