@@ -1,2 +1,21 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+/* Mobile-first base font adjustments to avoid 'zoomed out' feeling on small screens */
+:root {
+	font-size: 16px; /* base */
+}
+
+@media (min-width: 640px) {
+	:root {
+		font-size: 15px; /* slightly smaller on larger screens so layout fits better */
+	}
+}
+
+html, body, #root {
+	height: 100%;
+}
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
