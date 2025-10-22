@@ -1,3 +1,11 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development
+.env.test
+
 # Logs
 logs
 *.log
@@ -12,6 +20,11 @@ dist
 dist-ssr
 *.local
 
+# Vite
+.vite/
+.cache/
+.eslintcache
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +35,48 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
+*~
+
+# Azure deployment
+.azure/
+azure.yaml
+
+# Backend (if applicable)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+ENV/
+
+# OS files
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+.temp/
+tmp/
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE
+*.sublime-project
+*.sublime-workspace
+
+# TypeScript
+*.tsbuildinfo
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

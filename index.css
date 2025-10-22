@@ -1,0 +1,82 @@
+/* Global styles for Learn Gujarati LMS */
+/* This file is loaded from index.html */
+
+/* Ensure a white background by default and reset body margins */
+html, body, #root {
+  height: 100%;
+  background-color: #ffffff;
+}
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #1f2937; /* text-gray-800 */
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Gujarati', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+/* Disable dark mode by preventing the dark class from taking effect */
+.dark {
+  color-scheme: light;
+}
+.dark, .dark * {
+  --tw-bg-opacity: 1 !important;
+}
+
+/* Responsive container used across pages */
+.app-container {
+  max-width: 1024px; /* comfortable desktop width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Small screens: full width with comfortable padding */
+@media (max-width: 640px) {
+  .app-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Logo specific colors when Tailwind classes are not applied */
+.logo-learn {
+  color: #1D4ED8; /* blue-700 */
+}
+.logo-gujarati {
+  color: #F97316; /* orange-500 */
+}
+
+/* Improve form/button sizing on mobile */
+input, button, select, textarea {
+  font-size: 16px;
+}
+
+/* Responsive container used across pages */
+.app-container {
+  max-width: 1024px; /* comfortable desktop width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Small screens: full width with comfortable padding */
+@media (max-width: 640px) {
+  .app-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Logo specific colors when Tailwind classes are not applied */
+.logo-learn {
+  color: #1D4ED8; /* blue-700 */
+}
+.logo-gujarati {
+  color: #F97316; /* orange-500 */
+}
+
+/* Improve form/button sizing on mobile */
+input, button, select, textarea {
+  font-size: 16px;
+}
