@@ -48,6 +48,22 @@ service cloud.firestore {
       allow delete: if isSuperAdmin();
     }
     
+    // Auth deletion requests collection
+    match /auth_deletion_requests/{requestId} {
+      // Super Admins can create deletion requests
+      allow create: if isSuperAdmin();
+      
+      // Super Admins can read deletion requests
+      allow read: if isSuperAdmin();
+      
+      // Allow Cloud Functions to update (they run without auth context)
+      // Also allow Super Admins to update
+      allow update: if request.auth == null || isSuperAdmin();
+      
+      // Only Super Admins can delete requests
+      allow delete: if isSuperAdmin();
+    }
+    
     // Batches collection (example for future use)
     match /batches/{batchId} {
       // Approved users can read batches they're assigned to

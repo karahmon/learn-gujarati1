@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
 import { User, Role, ApprovalStatus } from '../types';
 import { useAuth } from '../context/AuthContext';
+import { deleteUserWithAuth, areCloudFunctionsAvailable } from '../firebase-functions';
 
 export default function RoleManagement() {
   const { user: currentUser } = useAuth();
@@ -144,15 +145,61 @@ export default function RoleManagement() {
   };
 
   const handleDeleteUser = async (user: User) => {
-    if (!confirm(`Are you sure you want to delete ${user.fullName}? This will remove their Firestore data but NOT their Firebase Auth account.`)) return;
+    const canDeleteFromAuth = areCloudFunctionsAvailable();
+    
+    const confirmMessage = canDeleteFromAuth
+      ? `Are you sure you want to delete ${user.fullName}?\n\nThis will:\n✅ Remove their Firestore data\n✅ Delete their Firebase Authentication account\n\n⚠️ This action CANNOT be undone!`
+      : `Are you sure you want to delete ${user.fullName}?\n\nThis will:\n✅ Remove their Firestore data\n❌ Keep their Firebase Authentication account\n\n⚠️ To fully delete their auth account, you need to:\n1. Deploy Cloud Functions (see CLOUD_FUNCTIONS_SETUP.md)\n2. Or manually delete from Firebase Console\n\nContinue with Firestore deletion only?`;
+
+    if (!confirm(confirmMessage)) return;
 
     try {
-      await db.collection('users').doc(user.uid).delete();
-      alert('User deleted successfully from database!');
-      fetchUsers();
-    } catch (error) {
+      if (canDeleteFromAuth) {
+        // Use Cloud Function to delete from both Firestore and Auth
+        const result = await deleteUserWithAuth(user.uid);
+        if (result.success) {
+          alert(`✅ ${user.fullName} has been completely deleted from both database and authentication!`);
+          fetchUsers();
+        } else {
+          throw new Error(result.message);
+        }
+      } else {
+        // Fallback: Only delete from Firestore
+        await db.collection('users').doc(user.uid).delete();
+        console.log('User deleted from Firestore');
+
+        // Create a deletion request for manual processing
+        await db.collection('auth_deletion_requests').add({
+          uid: user.uid,
+          email: user.email,
+          fullName: user.fullName,
+          requestedBy: currentUser?.uid,
+          requestedAt: new Date().toISOString(),
+          status: 'pending'
+        });
+        console.log('Auth deletion request created');
+
+        alert(
+          `✅ ${user.fullName} deleted from database.\n\n` +
+          `⚠️ Their authentication account still exists.\n\n` +
+          `To complete deletion:\n` +
+          `1. Go to Firebase Console > Authentication\n` +
+          `2. Find user: ${user.email}\n` +
+          `3. Click the three dots and select "Delete account"\n\n` +
+          `Or deploy Cloud Functions for automatic deletion.`
+        );
+        fetchUsers();
+      }
+    } catch (error: any) {
       console.error('Error deleting user:', error);
-      alert('Failed to delete user: ' + error);
+      
+      if (error.code === 'functions/not-found') {
+        alert('❌ Cloud Function not found. Please deploy the functions first.\n\nSee CLOUD_FUNCTIONS_SETUP.md for instructions.');
+      } else if (error.code === 'functions/permission-denied') {
+        alert('❌ Permission denied. Only Super Admins can delete users.');
+      } else {
+        alert('❌ Failed to delete user: ' + error.message);
+      }
     }
   };
 
@@ -210,7 +257,7 @@ export default function RoleManagement() {
     window.URL.revokeObjectURL(url);
   };
 
-  const importFromCSV = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const importFromCSV = (event: { target: { files?: FileList | null } }) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
