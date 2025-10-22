@@ -131,6 +131,7 @@ const LoginPage: React.FC = () => {
   const [isLoginView, setIsLoginView] = useState(true);
   const { login, signup } = useAuth();
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Form state for both forms
@@ -146,6 +147,7 @@ const LoginPage: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setSuccess(null);
     setLoading(true);
     try {
       await login(email, password);
@@ -163,6 +165,7 @@ const LoginPage: React.FC = () => {
       return;
     }
     setError(null);
+    setSuccess(null);
     setLoading(true);
     try {
       await signup({
@@ -175,6 +178,7 @@ const LoginPage: React.FC = () => {
         country,
         role,
       });
+      setSuccess("Account created successfully! Please wait for admin approval.");
     } catch (err: any) {
       setError(err.message || 'Failed to create an account.');
     } finally {
@@ -213,9 +217,10 @@ const LoginPage: React.FC = () => {
             )}
         </div>
         {error && <p className="text-sm text-red-500 text-center">{error}</p>}
+        {success && <p className="text-sm text-green-600 text-center font-medium">{success}</p>}
         <div className="text-sm text-center">
             <button
-                onClick={() => { setIsLoginView(!isLoginView); setError(null); }}
+                onClick={() => { setIsLoginView(!isLoginView); setError(null); setSuccess(null); }}
                 className="font-medium text-gray-800 hover:text-gray-600"
             >
                 {isLoginView ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}

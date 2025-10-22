@@ -3,7 +3,7 @@ import { auth, db } from '../firebase';
 // FIX: Replaced modular auth imports with firebase compat to fix module export errors.
 // This provides the necessary Firebase User type and aligns with the v8/compat API style for authentication.
 import firebase from 'firebase/compat/app';
-import { User, Role } from '../types';
+import { User, Role, ApprovalStatus } from '../types';
 
 // Define the shape of the data to be passed during signup
 interface SignUpData {
@@ -72,6 +72,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       await auth.signOut();
       throw new Error('Authentication successful, but user profile not found. Please try signing up again or contact support.');
     }
+
+    const userData = userDoc.data();
+    
+    // Check approval status
+    if (userData?.approvalStatus === ApprovalStatus.REJECTED) {
+      // Allow login but they'll see the rejected page
+      return;
+    }
+    
     // The onAuthStateChanged listener will handle setting the user state.
   };
 
@@ -81,11 +90,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const userCredential = await auth.createUserWithEmailAndPassword(email, password_redacted);
     const firebaseUser = userCredential.user!;
 
-    // Create a user document in Firestore
+    // Create a user document in Firestore with pending approval status
     const userDocRef = db.collection('users').doc(firebaseUser.uid);
     await userDocRef.set({
       email,
       ...profileData,
+      approvalStatus: ApprovalStatus.PENDING,
+      createdAt: new Date().toISOString(),
     });
     // The onAuthStateChanged listener will handle setting the user state.
   };

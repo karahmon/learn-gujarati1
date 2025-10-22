@@ -6,6 +6,12 @@ export enum Role {
   SUPER_ADMIN = 'Super Admin',
 }
 
+export enum ApprovalStatus {
+  PENDING = 'pending',
+  APPROVED = 'approved',
+  REJECTED = 'rejected',
+}
+
 export interface User {
   uid: string;
   fullName: string;
@@ -15,6 +21,12 @@ export interface User {
   mhtId: string;
   country: string;
   role: Role;
+  approvalStatus?: ApprovalStatus;
+  createdAt?: Date | string;
+  approvedAt?: Date | string;
+  approvedBy?: string;
+  rejectedReason?: string;
+  assignedBatches?: string[]; // Array of batch numbers/names assigned to this user
 }
 
 export interface Mentee {
