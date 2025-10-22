@@ -25,24 +25,33 @@ const requiredKeys = [
   'VITE_FIREBASE_APP_ID'
 ];
 
-const missing = requiredKeys.filter(k => !getEnv(k));
+// Identify missing keys (either undefined or left as placeholder values like 'REPLACE_ME' or 'REPLACE_')
+const missing = requiredKeys.filter(k => {
+  const v = getEnv(k);
+  return !v || v.startsWith('REPLACE');
+});
+
 if (missing.length) {
-  // Provide a clear runtime message in development when envs are missing.
-  // In production, you may want a different strategy.
   // eslint-disable-next-line no-console
-  console.warn(`Missing required Firebase env vars: ${missing.join(', ')}. ` +
-    'Create a local `.env` with the VITE_FIREBASE_* keys or configure them in your hosting provider.');
+  console.warn(`Missing or placeholder Firebase env vars: ${missing.join(', ')}.` +
+    ' Configure them locally in a `.env` file or in your hosting provider.');
+}
+
+function asMaybe(key: string) {
+  const v = getEnv(key);
+  if (!v || v.startsWith('REPLACE')) return undefined;
+  return v;
 }
 
 export const firebaseConfig = {
-  apiKey: getEnv('VITE_FIREBASE_API_KEY') || 'REPLACE_ME',
-  authDomain: getEnv('VITE_FIREBASE_AUTH_DOMAIN') || 'REPLACE_ME',
-  // Optional Realtime Database URL
-  databaseURL: getEnv('VITE_FIREBASE_DATABASE_URL') || undefined,
-  projectId: getEnv('VITE_FIREBASE_PROJECT_ID') || 'REPLACE_ME',
-  storageBucket: getEnv('VITE_FIREBASE_STORAGE_BUCKET') || 'REPLACE_ME',
-  messagingSenderId: getEnv('VITE_FIREBASE_MESSAGING_SENDER_ID') || 'REPLACE_ME',
-  appId: getEnv('VITE_FIREBASE_APP_ID') || 'REPLACE_ME',
-  // measurementId is optional
-  measurementId: getEnv('VITE_FIREBASE_MEASUREMENT_ID')
+  apiKey: asMaybe('VITE_FIREBASE_API_KEY'),
+  authDomain: asMaybe('VITE_FIREBASE_AUTH_DOMAIN'),
+  databaseURL: asMaybe('VITE_FIREBASE_DATABASE_URL'),
+  projectId: asMaybe('VITE_FIREBASE_PROJECT_ID'),
+  storageBucket: asMaybe('VITE_FIREBASE_STORAGE_BUCKET'),
+  messagingSenderId: asMaybe('VITE_FIREBASE_MESSAGING_SENDER_ID'),
+  appId: asMaybe('VITE_FIREBASE_APP_ID'),
+  measurementId: asMaybe('VITE_FIREBASE_MEASUREMENT_ID')
 };
+
+export const firebaseIsConfigured = Boolean(firebaseConfig.apiKey && firebaseConfig.projectId && firebaseConfig.appId);
